@@ -11,8 +11,9 @@ def ping():
 
 @app.route("/customerorders/status", methods=['POST'])
 def get_customerorders_status():
-    '''Receive a list of dicts with structure {str:"order_number", str:"item_name", str:"status"}.
-    Then check the actual status in each costumer order received. The Status accepted are "PENDING","SHIPPED" and "CANCELLED"
+    '''Check and return the actual status in each costumer order received.
+    Receive a list of dicts with structure {str:"order_number", str:"item_name", str:"status"}.
+    The status accepted are "PENDING","SHIPPED" and "CANCELLED".
     '''
 
     # Structure the data
@@ -26,8 +27,10 @@ def get_customerorders_status():
 
 @app.route("/customerorders/season", methods=["POST"])
 def get_customerorders_season():
-    '''Receive a list of dicts with structure {str:"ORD_ID", str:"ORD_DT", int:"QT_ORDD"}. 
-    The ORD_DT attribute is received as string, but represent a date. That's why needs to have the %m/%d/%y format
+    '''Classify customer orders in seasons accord the order date.
+    Receive a list of dicts with structure {str:"ORD_ID", str:"ORD_DT", int:"QT_ORDD"}. 
+    The ORD_DT attribute is received as string, but represent a date. That's why needs to have the %m/%d/%y format.
+    
     '''
     # Structure the data
     df_customer_orders = pd.DataFrame(request.json)
@@ -38,7 +41,14 @@ def get_customerorders_season():
 
     return jsonify(df_customer_orders[['ORD_ID', 'SEASON']].to_dict('records'))
 
-
+@app.route("/weather/detectchanges", methods=["POST"])
+def detect_weather_changes():
+    '''Return the dates where the weather changed to rainy.
+    Receive a list of dicts with structure {str:"date", boolean:"was_rainy"}. 
+    The date attribute is received as string, but represent a date. That's why needs to have the %m/%d/%y format.
+    '''
+    weather_history = request.json
+    return jsonify(helpers.detect_changes(weather_history))
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

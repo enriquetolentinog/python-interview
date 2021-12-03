@@ -22,3 +22,14 @@ def get_season(order_date):
     order_date = order_date.replace(year=Y)
     return next(season for season, (start, end) in seasons
                 if start <= order_date <= end)
+
+def detect_changes(weather):
+    weather_changes_detected = []
+    for index, elem in enumerate(weather):
+        if (index < len(weather) and index - 1 >= 0):
+            prev_el = weather[index-1]
+            curr_el = elem
+            if(not prev_el['was_rainy'] and curr_el['was_rainy']):
+                weather_changes_detected.append(curr_el)
+                
+    return weather_changes_detected
