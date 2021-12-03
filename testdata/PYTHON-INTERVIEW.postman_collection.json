@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "20915f89-2321-47df-9a7e-8b85c43b20b7",
+		"name": "PYTHON-INTERVIEW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/customerorder/status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\"order_number\": \"ORD_1567\", \"item_name\": \"LAPTOP\", \"status\": \"SHIPPED\"},\r\n    {\"order_number\": \"ORD_1567\", \"item_name\": \"MOUSE\", \"status\": \"SHIPPED\"},\r\n    {\"order_number\": \"ORD_1567\", \"item_name\": \"KEYBOARD\", \"status\": \"PENDING\"},\r\n    {\"order_number\": \"ORD_1234\", \"item_name\": \"GAME\", \"status\": \"SHIPPED\"},\r\n    {\"order_number\": \"ORD_1234\", \"item_name\": \"BOOK\", \"status\": \"CANCELLED\"},\r\n    {\"order_number\": \"ORD_1234\", \"item_name\": \"BOOK\", \"status\": \"CANCELLED\"},\r\n    {\"order_number\": \"ORD_9834\", \"item_name\": \"SHIRT\", \"status\": \"SHIPPED\"},\r\n    {\"order_number\": \"ORD_9834\", \"item_name\": \"PANTS\", \"status\": \"CANCELLED\"},\r\n    {\"order_number\": \"ORD_7654\", \"item_name\": \"TV\", \"status\": \"CANCELLED\"},\r\n    {\"order_number\": \"ORD_7654\", \"item_name\": \"DVD\", \"status\": \"CANCELLED\"}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/customerorder/status",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customerorder",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/customerorders/season",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\"ORD_ID\": \"113-8909896-6940269\", \"ORD_DT\": \"9/23/19\", \"QT_ORDD\": 1},\r\n    {\"ORD_ID\": \"114-0291773-7262677\", \"ORD_DT\": \"1/1/20\", \"QT_ORDD\": 1},\r\n    {\"ORD_ID\": \"114-0291773-7262697\", \"ORD_DT\": \"12/5/19\", \"QT_ORDD\": 1},\r\n    {\"ORD_ID\": \"114-9900513-7761000\", \"ORD_DT\": \"9/24/20\", \"QT_ORDD\": 1},\r\n    {\"ORD_ID\": \"112-5230502-8173028\", \"ORD_DT\": \"1/30/20\", \"QT_ORDD\": 1},\r\n    {\"ORD_ID\": \"112-7714081-3300254\", \"ORD_DT\": \"5/2/20\", \"QT_ORDD\": 1},\r\n    {\"ORD_ID\": \"114-5384551-1465853\", \"ORD_DT\": \"4/2/20\", \"QT_ORDD\": 1},\r\n    {\"ORD_ID\": \"114-7232801-4607440\", \"ORD_DT\": \"10/9/20\", \"QT_ORDD\": 1}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/customerorders/season",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customerorders",
+						"season"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/weather/detectchanges",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\"date\": \"1/1/20\", \"was_rainy\": false},\r\n    {\"date\": \"1/2/20\", \"was_rainy\": true},\r\n    {\"date\": \"1/3/20\", \"was_rainy\": true},\r\n    {\"date\": \"1/4/20\", \"was_rainy\": false},\r\n    {\"date\": \"1/5/20\", \"was_rainy\": false},\r\n    {\"date\": \"1/6/20\", \"was_rainy\": true},\r\n    {\"date\": \"1/7/20\", \"was_rainy\": false},\r\n    {\"date\": \"1/8/20\", \"was_rainy\": true},\r\n    {\"date\": \"1/9/20\", \"was_rainy\": true},\r\n    {\"date\": \"1/10/20\", \"was_rainy\": true}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/weather/detectchanges",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"weather",
+						"detectchanges"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
